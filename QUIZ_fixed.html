@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+      margin: 0;
+      padding: 0;
+      background-color: lemonchiffon;
+  }
+  #container {
+    height: 500px;
+    background-color: lightcoral;
+    margin: 50px 50px;
+    padding: 10px;
+    text-align: center;
+  }
+  .btns {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+  a{ 
+    text-decoration: none;
+    color: #000;
+  }
+  .button {
+    width: 60px;
+    height: 50px;
+    background-color: lightgoldenrodyellow;
+    border-radius: 10px;
+    
+  }
+    </style>
+  </head>
+  <!--
+        QUIZ GAME!
+
+        RULES:
+        / The player must guess correctly a certain amount of questions
+        / Each correct answer gives him one point
+        / Answers could be "multiple" or "true/false"
+        / At the end of the game, the user must know his total score
+
+        QUESTIONS:
+        / You can get them from this URL ( http://bit.ly/strive_QUIZZ ) or you can write your own
+        / Could be multiple of boolean (true / false)
+        / [EXTRA] Show if the answer was wrong or correct after clicking
+        / [EXTRA] Present them "one a time"
+
+        HINTS:
+        / Keep a global variable "score" for the score
+        / Keep a variable "questionNumber" for the "question" the user is answering
+        / When "questionNumber" is bigger then the available questions, present the score
+        / Start working with the question saved in a variable, and then include AJAX etc
+        / Start with the easier version and THEN implement the "EXTRAs"
+        / Please debug everything / try it on the console to be sure of what to expect from your code
+
+        EXTRA:
+        / Show if the answer was wrong or correct after clicking
+        / Present questions one a time
+        / Let the user select difficulty and number of questions (you can get q/a from https://opentdb.com/api.php?amount=10&category=18&difficulty=easy modifying amount and difficulty)
+
+    -->
+
+ 
+  <body>
+    <div id="container">
+      <h1>COMPUTER SCIENCE: QUIZ</h1>
+    <div id="quiz"></div>
+
+    <div class="btns"> 
+      <div class="button" id="next"><a href="#">Next</a></div>
+      <div class="button" id="prev"><a href="#">Prev</a></div>
+      <div class="button" id="tart"><a href="#">Start Over</a></div>
+    </div>
+  </div>
+    <script>
+     window.onload = function() {
+
+
+        var questions = [
+        {
+          category: "Science: Computers",
+          type: "multiple",
+          difficulty: "easy",
+          question: "What does CPU stand for?",
+          correctAnswer: "Central Processing Unit",
+          choices: [
+            "Central Process Unit",
+            "Computer Personal Unit",
+            "Central Processing Unit",
+            "Central Processor Unit",
+          ],
+        },
+        {
+          category: "Science: Computers",
+          type: "multiple",
+          difficulty: "easy",
+          question:
+            "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
+          correctAnswer: "Final",
+          choices: ["Static", "Private", "Public", "Final"],
+        },
+        {
+          category: "Science: Computers",
+          type: "boolean",
+          difficulty: "easy",
+          question: "The logo for Snapchat is a Bell.",
+          correctAnswer: "False",
+          choices: ["False", "True"],
+        },
+        {
+          category: "Science: Computers",
+          type: "boolean",
+          difficulty: "easy",
+          question:
+            "Pointers were not used in the original C programming language; they were added later on in C++.",
+          correctAnswer: "False",
+          choices: ["False", "True"],
+        },
+        {
+          category: "Science: Computers",
+          type: "multiple",
+          difficulty: "easy",
+          question:
+            "What is the most preferred image format used for logos in the Wikimedia database?",
+          correctAnswer: ".svg",
+          choices: [".png", ".jpeg", ".gif", ".svg"],
+        },
+        {
+          category: "Science: Computers",
+          type: "multiple",
+          difficulty: "easy",
+          question: "In web design, what does CSS stand for?",
+          correctAnswer: "Cascading Style Sheet",
+          choices: [
+            "Counter Strike: Source",
+            "Cascading Style Sheet",
+            "Corrective Style Sheet",
+            "Computer Style Sheet",
+          ],
+        },
+        {
+          category: "Science: Computers",
+          type: "multiple",
+          difficulty: "easy",
+          question:
+            "What is the code name for the mobile operating system Android 7.0?",
+          correctAnswer: "Nougat",
+          choices: [
+            "Ice Cream Sandwich",
+            "Nougat",
+            "Jelly Bean",
+            "Marshmallow",
+          ],
+        },
+        {
+          category: "Science: Computers",
+          type: "multiple",
+          difficulty: "easy",
+          question: "On Twitter, what is the character limit for a Tweet?",
+          correctAnswer: "140",
+          choices: ["120", "160", "140", "100"],
+        },
+        {
+          category: "Science: Computers",
+          type: "boolean",
+          difficulty: "easy",
+          question: "Linux was first created as an alternative to Windows XP.",
+          correctAnswer: "False",
+          choices: ["False", "True"],
+        },
+        {
+          category: "Science: Computers",
+          type: "multiple",
+          difficulty: "easy",
+          question:
+            "Which programming language shares its name with an island in Indonesia?",
+          correctAnswer: "Java",
+          choices: ["Java", "Python", "C", "Jakarta"],
+        },
+      ];
+     
+    
+
+
+
+
+
+
+    }
+        //IF YOU ARE DISPLAYING ALL THE QUESTIONS TOGETHER:
+        //HINT: for each question, create a container with the "question"
+        //create a radio button https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio with, as option the both the correct answer and the incorrect answers
+        //when EVERY question has an answer (google for how to get a value from a radio button with JS)
+        //IF YOU ARE DISPLAYING ONE QUESTION AT A TIME
+        //Display first question with a title + radio button
+        //when the user select the answer, pick the next question and remove this from the page after added in a varible the users' choice.
+     
+
+      //HOW TO calculate the result
+      //You can do it in 2 ways:
+      //If you are presenting all questions together, just take all the radio buttons and check if the selected answer === correctAnswer
+      //If you are presenting one question at a time, just add one point or not to the user score if the selected answer === correctAnswer
+   
+
+  </body>
+</html>
