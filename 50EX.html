@@ -311,18 +311,15 @@
             ths[i].addEventListener('click', function(){
                  this.style.backgroundColor = 'red';
             });
-        }
- // FIX: IT DELETES SEVERAL TR EVERY TIME I CLICK. I NEED JUST ONE ITEM       
+        }    
         // 47) Add a button DELETE, on click it should delete a random th from the page
         let targets = document.getElementsByTagName('th');
         let butDelete = document.createElement('button');
         butDelete.innerHTML = 'Delete th';
         document.body.appendChild(butDelete);
         butDelete.addEventListener('click', function(){
-          for (i = 0; i < targets.length; i++) {
              rand = Math.floor(Math.random() * targets.length);
              targets[rand].style.display = 'none';
-          }
         });
 
         
